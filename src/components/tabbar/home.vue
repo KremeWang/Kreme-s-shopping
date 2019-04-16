@@ -1,5 +1,9 @@
 <template>
     <div class="home-index">
+        <!-- 首页搜索 -->
+        <div class="mui-input-row mui-search">
+            <input type="search" class="mui-input-clear" placeholder="请输入搜索内容">
+        </div>
         <!-- 轮播图 -->
         <div class="swiperPic">
             <mt-swipe :auto="4000" :show-indicators="false" :speed="1000">
@@ -61,7 +65,7 @@
                 </li>
             </ul>
         </div>
-        
+
     </div>
 </template>
 
@@ -70,7 +74,7 @@ import { Swipe, SwipeItem } from 'mint-ui';
 export default {
     data(){
         return{
-            
+            value:''
         }
     }
 }

@@ -1,3 +1,9 @@
+.home-index .mui-search {
+  height: 44px;
+}
+.home-index .mui-search .mui-input-clear {
+  margin-top: 5px;
+}
 .home-index .swiperPic {
   height: 200px;
 }

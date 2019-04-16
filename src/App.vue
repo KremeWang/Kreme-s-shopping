@@ -2,7 +2,7 @@
   <div>
     <div class="app-container">
       <!-- 头部公共组件 -->
-      <mt-header fixed title="kreme's shopping space"></mt-header>
+      <!-- <mt-header fixed title="kreme's shopping space"></mt-header> -->
       <!-- 内容组件，占位 -->
       <transition>
         <router-view></router-view>
