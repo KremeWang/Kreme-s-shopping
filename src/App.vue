@@ -1,8 +1,13 @@
 <template>
   <div>
     <div class="app-container">
+      <!-- 头部公共组件 -->
       <mt-header fixed title="kreme's shopping space"></mt-header>
-      <router-view></router-view>
+      <!-- 内容组件，占位 -->
+      <transition>
+        <router-view></router-view>
+      </transition>
+      <!-- 底部公共组件 -->
       <nav class="mui-bar mui-bar-tab">
         <router-link class="mui-tab-item" to="/home">
           <span class="mui-icon mui-icon-home"></span>
@@ -34,16 +39,5 @@ export default {
 };
 </script>
 <style scoped>
-.mint-header.is-fixed {
-  background-color: #333;
-}
-.app-container {
-  padding-top: 40px;
-}
-.mui-bar-tab {
-  background-color: #333;
-}
-.mui-bar-tab .mui-tab-item.mui-active {
-  color: yellow;
-}
+@import url("./assets/css/app.css");
 </style>

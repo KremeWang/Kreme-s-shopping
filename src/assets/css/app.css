@@ -1,0 +1,39 @@
+.mint-header.is-fixed {
+    background-color: #333;
+}
+
+.app-container {
+    padding-top: 40px;
+}
+
+.mui-bar-tab {
+    background-color: #333;
+}
+
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: yellow;
+}
+
+.app-container {
+    padding-top: 40px;
+    overflow-x: hidden;
+    /*隐藏超出屏幕部分*/
+}
+
+.v-enter {
+    opacity: 0;
+    transform: translateX(100%);
+    /*进入起点在屏幕100%部分,即屏幕最右*/
+}
+
+.v-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+    /*离开的终点在屏幕-100%部分*/
+    position: absolute;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: all 0.5s ease;
+}

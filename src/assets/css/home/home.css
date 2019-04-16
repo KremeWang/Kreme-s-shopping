@@ -1,0 +1,22 @@
+.home-index .swiperPic {
+  height: 200px;
+}
+.home-index .swiperPic .mtSwipeItem:nth-child(1) {
+  background: url('../../images/52747066b0947fa40bd5dd2d3a135e0b.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+.home-index .swiperPic :nth-child(2) {
+  background: url('../../images/e6b2ab428d2b6413508177db14bb27e3.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+.home-index .swiperPic :nth-child(3) {
+  background: url('../../images/f4396b1de74bdcf492f77d3e591d84bd.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+.home-index .navBanner ul li {
+  width: 25%;
+  padding: 10px;
+}
+.home-index .navBanner ul li .mui-icon {
+  color: #333;
+}
