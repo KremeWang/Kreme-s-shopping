@@ -30,11 +30,20 @@
 <script>
 import { Header, Tabbar, TabItem } from "mint-ui";
 export default {
-  methods:{}
+  methods: {}
 };
 </script>
 <style scoped>
-.app-container{
+.mint-header.is-fixed {
+  background-color: #333;
+}
+.app-container {
   padding-top: 40px;
+}
+.mui-bar-tab {
+  background-color: #333;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+  color: yellow;
 }
 </style>
