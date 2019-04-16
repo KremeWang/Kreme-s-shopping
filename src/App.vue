@@ -4,7 +4,7 @@
       <mt-header fixed title="kreme's shopping space"></mt-header>
       <router-view></router-view>
       <nav class="mui-bar mui-bar-tab">
-        <router-link class="mui-tab-item mui-active" to="/home">
+        <router-link class="mui-tab-item" to="/home">
           <span class="mui-icon mui-icon-home"></span>
           <span class="mui-tab-label">首页</span>
         </router-link>
