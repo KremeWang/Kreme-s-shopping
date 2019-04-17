@@ -7,14 +7,14 @@
         <!-- <mt-header fixed title="kreme's shopping space"></mt-header> -->
         <header class="header">
             <div class="header_left">
-                <span class="mui-icon mui-icon-location"></span>武汉
+                <span class="mui-icon mui-icon-location"></span>{{LocationCity}}
             </div>
             <div class="header_middle">
                 <span class="mui-icon mui-icon-search"></span>
                 <input type="text" placeholder="请输入搜索关键字">
             </div>
             <div class="header_right">
-                <span class="mui-icon mui-icon-bars"></span>
+                <span class="mui-icon mui-icon-bars" @click="openFile"></span>
             </div>
         </header>
         <!-- 轮播图 -->
@@ -102,11 +102,15 @@
             </div>
         </div>
 
+        <!-- 弹出层部分 -->
+        <mt-actionsheet :actions="data" v-model="sheetVisible" cancelText='取消'></mt-actionsheet>
+
     </div>
 </template>
 
 <script>
-import { Header, Swipe, SwipeItem, InfiniteScroll } from 'mint-ui';
+import { Header, Swipe, SwipeItem, InfiniteScroll, Actionsheet, Toast } from 'mint-ui';
+import BMap from 'BMap';
 export default {
     data(){
         return{
@@ -125,10 +129,17 @@ export default {
                 {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
                 {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
                 {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
-            ]
+            ],
+            sheetVisible:false,
+            data:[
+                {name:'拍照',method:this.getCamera},
+                {name:'从相册选择',method:this.getLibrary}
+            ],
+            LocationCity:"正在定位"
         }
     },
     mounted(){
+        this.city();
     },
     methods:{
         //上拉刷新
@@ -141,6 +152,30 @@ export default {
                 }
                 this.loading = false;
             }, 2500);
+        },
+        //弹窗
+        openFile(){
+            this.sheetVisible = true;
+        },
+        //打开相机
+        getCamera(){
+            Toast('已打开手机摄像头');
+        },
+        //打开本机相册
+        getLibrary(){
+            Toast('已打开手机相册');
+        },
+        //百度定位
+        city(){    //定义获取城市方法
+            const geolocation = new BMap.Geolocation();
+            var _this = this
+            geolocation.getCurrentPosition(function getinfo(position){
+                let city = position.address.city;             //获取城市信息
+                let province = position.address.province;    //获取省份信息
+                _this.LocationCity = city
+            }, function(e) {
+                _this.LocationCity = "定位失败"
+            }, {provider: 'baidu'});		
         }
     }
 }
