@@ -14,6 +14,11 @@ import 'mint-ui/lib/style.css'
 // 导入mui样式
 import './lib/mui/css/mui.min.css'
 
+
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
