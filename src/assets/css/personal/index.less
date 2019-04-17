@@ -1,0 +1,74 @@
+.personal-index{
+    background-color: #efeff4;
+    height: 100%;
+    .header{
+        width: 100%;
+        height: 40px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+    }
+    .manInfo{
+        height: 100px;
+        width: 100%;
+        position: relative;
+        background-color: #fff;
+        .info_img{
+            width: 70px;
+            height: 70px;
+            border-radius: 5px;
+            background: url('./../../images/头像.jpg') no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+        .info_word{
+            float: left;
+            margin-left: 100px;
+            height: 100%;
+            width: calc(100% - 100px);
+            padding: 20px 0 0;
+            .accountNum{
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+    .function{
+        margin-top: 10px;
+        .payment,.setting{
+            height: 50px;
+            background-color: #fff;
+            padding: 0 0 0 10px;
+            line-height: 50px;
+            font-size: 16px;
+            span:nth-child(3){
+                float: right;
+                font-size: 20px;
+                margin-right: 10px;
+            }
+        }
+        .lifeContent{
+            margin-top: 10px;
+            background-color: #fff;
+            ul{
+                list-style: none;
+                padding: 0 0 0 10px;
+                li{
+                    height: 50px;
+                    line-height: 50px;
+                    font-size: 16px;
+                    border-bottom: 1px solid #efeff4;
+                    span:nth-child(3){
+                        float: right;
+                        font-size: 20px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+.personal-index {
+  background-color: #efeff4;
+  height: 100%;
+}
+.personal-index .header {
+  width: 100%;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+}
+.personal-index .manInfo {
+  height: 100px;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+}
+.personal-index .manInfo .info_img {
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  background: url('../../images/头像.jpg') no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.personal-index .manInfo .info_word {
+  float: left;
+  margin-left: 100px;
+  height: 100%;
+  width: calc(0%);
+  padding: 20px 0 0;
+}
+.personal-index .manInfo .info_word .accountNum {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.personal-index .function {
+  margin-top: 10px;
+}
+.personal-index .function .payment,
+.personal-index .function .setting {
+  height: 50px;
+  background-color: #fff;
+  padding: 0 0 0 10px;
+  line-height: 50px;
+  font-size: 16px;
+}
+.personal-index .function .payment span:nth-child(3),
+.personal-index .function .setting span:nth-child(3) {
+  float: right;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.personal-index .function .lifeContent {
+  margin-top: 10px;
+  background-color: #fff;
+}
+.personal-index .function .lifeContent ul {
+  list-style: none;
+  padding: 0 0 0 10px;
+}
+.personal-index .function .lifeContent ul li {
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  border-bottom: 1px solid #efeff4;
+}
+.personal-index .function .lifeContent ul li span:nth-child(3) {
+  float: right;
+  font-size: 20px;
+  margin-right: 10px;
+}
