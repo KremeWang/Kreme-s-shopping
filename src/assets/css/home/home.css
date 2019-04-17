@@ -1,3 +1,53 @@
+.home-index .header {
+  width: 100%;
+  height: 40px;
+  background-color: #333;
+  line-height: 40px;
+  color: #fff;
+}
+.home-index .header .mui-icon {
+  font-size: 18px;
+}
+.home-index .header .header_left {
+  width: 20%;
+  font-size: 14px;
+  float: left;
+}
+.home-index .header .header_middle {
+  width: 65%;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 5px;
+  color: #333;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+.home-index .header .header_middle input {
+  float: right;
+  width: calc(82%);
+  height: 28px;
+  font-size: 14px;
+  border: none;
+  background-color: #eee;
+  margin-top: 1px;
+  padding: 0;
+}
+.home-index .header .header_right {
+  width: 15%;
+  float: left;
+  position: relative;
+}
+.home-index .header .header_right span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 50%);
+}
+.home-index .mint-header.is-fixed {
+  background-color: #333;
+}
 .home-index .mui-search {
   height: 44px;
 }
@@ -25,4 +75,36 @@
 }
 .home-index .navBanner ul li .mui-icon {
   color: #333;
+}
+.home-index .hotContent {
+  padding: 10px;
+}
+.home-index .hotContent .hotContent_top {
+  border-left: 2px solid #333;
+  padding-left: 10px;
+}
+.home-index .hotContent .hotContent_middle {
+  height: 100%;
+}
+.home-index .hotContent .hotContent_middle .waterfall {
+  height: 100%;
+}
+.home-index .hotContent .hotContent_middle .waterfall .box {
+  margin-bottom: 10px;
+}
+.home-index .hotContent .hotContent_middle .waterfall .box img {
+  width: 100%;
+  border-radius: 5px;
+  height: 200px;
+  display: block;
+}
+.home-index .hotContent .hotContent_middle .waterfall .waterfall-left {
+  float: left;
+  width: 48%;
+  margin: 0 5px 5px;
+}
+.home-index .hotContent .hotContent_middle .waterfall .waterfall-right {
+  float: left;
+  width: 48%;
+  margin: 0 0 5px;
 }

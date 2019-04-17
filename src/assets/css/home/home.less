@@ -1,4 +1,58 @@
 .home-index {
+    // padding-top: 40px;
+    .header{
+        // position: fixed;
+        width: 100%;
+        height: 40px;
+        background-color: #333;
+        line-height: 40px;
+        color: #fff;
+        .mui-icon{
+            font-size: 18px;
+        }
+        .header_left{
+            width: 20%;
+            font-size: 14px;
+            float: left;
+        }
+        .header_middle{
+            width: 65%;
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 5px;
+            color: #333;
+            background-color: #eee;
+            border-radius: 5px;
+            padding: 0 5px;
+            input{
+                float: right;
+                width: calc(100% - 18px);
+                height: 28px;
+                font-size: 14px;
+                border: none;
+                background-color: #eee;
+                margin-top: 1px;
+                padding: 0;
+            }
+        }
+        .header_right{
+            width: 15%;
+            float: left;
+            position: relative;
+            span{
+               position: absolute;
+               left: 50%;
+               top: 50%;
+               transform: translate(-50%,50%);
+            }
+        }
+    }
+
+    .mint-header.is-fixed {
+        background-color: #333;
+    }
+
     .mui-search {
         height: 44px;
 
@@ -34,6 +88,48 @@
 
                 .mui-icon {
                     color: #333;
+                }
+            }
+        }
+    }
+
+    .hotContent {
+        padding: 10px;
+
+        .hotContent_top {
+            border-left: 2px solid #333;
+            padding-left: 10px;
+        }
+
+        .hotContent_middle {
+            height: 100%;
+            .waterfall {
+                // padding: 0 0.1615rem;
+                height: 100%;
+
+                .box {
+                    margin-bottom: 10px;
+
+                    img {
+                        width: 100%;
+                        border-radius: 5px;
+                        height: 200px;
+                        display: block;
+                    }
+                }
+
+                .waterfall-left {
+                    float: left;
+                    width: 48%;
+                    margin: 0 5px 5px;
+                    // background-color: #ccc;
+                }
+
+                .waterfall-right {
+                    float: left;
+                    width: 48%;
+                    margin: 0 0 5px;
+                    // background-color: #f47a91;
                 }
             }
         }

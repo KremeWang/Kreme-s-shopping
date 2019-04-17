@@ -12,6 +12,10 @@ export default new Router({
   linkActiveClass: 'mui-active',   //点击高亮显示
   routes: [
     {
+      path:'/',
+      redirect:'/home'
+    },
+    {
       path: '/home',
       component: home
     },

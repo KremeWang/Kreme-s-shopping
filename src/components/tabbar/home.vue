@@ -1,9 +1,22 @@
 <template>
     <div class="home-index">
         <!-- 首页搜索 -->
-        <div class="mui-input-row mui-search">
+        <!-- <div class="mui-input-row mui-search">
             <input type="search" class="mui-input-clear" placeholder="请输入搜索内容">
-        </div>
+        </div> -->
+        <!-- <mt-header fixed title="kreme's shopping space"></mt-header> -->
+        <header class="header">
+            <div class="header_left">
+                <span class="mui-icon mui-icon-location"></span>武汉
+            </div>
+            <div class="header_middle">
+                <span class="mui-icon mui-icon-search"></span>
+                <input type="text" placeholder="请输入搜索关键字">
+            </div>
+            <div class="header_right">
+                <span class="mui-icon mui-icon-bars"></span>
+            </div>
+        </header>
         <!-- 轮播图 -->
         <div class="swiperPic">
             <mt-swipe :auto="4000" :show-indicators="false" :speed="1000">
@@ -65,16 +78,69 @@
                 </li>
             </ul>
         </div>
+        <!-- 热点推荐你 -->
+        <div class="hotContent">
+            <div class="hotContent_top">热点推荐</div>
+            <!-- <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10">
+                <li v-for="(item,index) in list" :key="index">{{ item }}</li>
+            </ul> -->
+            <div class="hotContent_middle">
+                <div class="waterfall">
+                    <div class="waterfall-left">
+                        <div class="box" v-for="(item,index) in itemsA" :key="index">
+                            <!-- <img :src="item.img" alt=""> -->
+                            <img src="./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="waterfall-right">
+                        <div class="box" v-for="(item,index) in itemsB" :key="index">
+                            <!-- <img :src="item.img" alt=""> -->
+                            <img src="./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </template>
 
 <script>
-import { Swipe, SwipeItem } from 'mint-ui';
+import { Header, Swipe, SwipeItem, InfiniteScroll } from 'mint-ui';
 export default {
     data(){
         return{
-            value:''
+            value:'',
+            loading:false,
+            list:[],
+            itemsA:[
+                {img:'./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg'},
+                {img:'./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg'},
+                {img:'./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg'},
+                {img:'./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg'},
+                {img:'./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg'},
+            ],
+            itemsB:[
+                {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
+                {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
+                {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
+                {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
+            ]
+        }
+    },
+    mounted(){
+    },
+    methods:{
+        //上拉刷新
+        loadMore() {
+            this.loading = true;
+            setTimeout(() => {
+                let last = this.list[this.list.length - 1];
+                for (let i = 1; i <= 10; i++) {
+                this.list.push(last + i);
+                }
+                this.loading = false;
+            }, 2500);
         }
     }
 }

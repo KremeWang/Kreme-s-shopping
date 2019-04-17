@@ -7,12 +7,13 @@
 }
 
 .mui-bar-tab .mui-tab-item.mui-active {
-    color: yellow;
+    color: #fff;
 }
 
 .app-container {
     overflow-x: hidden;
     /*隐藏超出屏幕部分*/
+    padding-bottom: 50px;
 }
 
 .v-enter {
