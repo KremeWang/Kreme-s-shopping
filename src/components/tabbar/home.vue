@@ -78,29 +78,7 @@
                 </li>
             </ul>
         </div>
-        <!-- 热点推荐你 -->
-        <div class="hotContent">
-            <div class="hotContent_top">热点推荐</div>
-            <!-- <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10">
-                <li v-for="(item,index) in list" :key="index">{{ item }}</li>
-            </ul> -->
-            <div class="hotContent_middle">
-                <div class="waterfall">
-                    <div class="waterfall-left">
-                        <div class="box" v-for="(item,index) in itemsA" :key="index">
-                            <!-- <img :src="item.img" alt=""> -->
-                            <img src="./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="waterfall-right">
-                        <div class="box" v-for="(item,index) in itemsB" :key="index">
-                            <!-- <img :src="item.img" alt=""> -->
-                            <img src="./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- 弹出层部分 -->
         <mt-actionsheet :actions="data" v-model="sheetVisible" cancelText='取消'></mt-actionsheet>

@@ -76,35 +76,3 @@
 .home-index .navBanner ul li .mui-icon {
   color: #333;
 }
-.home-index .hotContent {
-  padding: 10px;
-}
-.home-index .hotContent .hotContent_top {
-  border-left: 2px solid #333;
-  padding-left: 10px;
-}
-.home-index .hotContent .hotContent_middle {
-  height: 100%;
-}
-.home-index .hotContent .hotContent_middle .waterfall {
-  height: 100%;
-}
-.home-index .hotContent .hotContent_middle .waterfall .box {
-  margin-bottom: 10px;
-}
-.home-index .hotContent .hotContent_middle .waterfall .box img {
-  width: 100%;
-  border-radius: 5px;
-  height: 200px;
-  display: block;
-}
-.home-index .hotContent .hotContent_middle .waterfall .waterfall-left {
-  float: left;
-  width: 48%;
-  margin: 0 5px 5px;
-}
-.home-index .hotContent .hotContent_middle .waterfall .waterfall-right {
-  float: left;
-  width: 48%;
-  margin: 0 0 5px;
-}
