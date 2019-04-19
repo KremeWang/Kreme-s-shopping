@@ -78,7 +78,13 @@
                 </li>
             </ul>
         </div>
-        
+        <!-- 推荐内容瀑布流 (两列) -->
+        <div class="water_cascade_flow">
+            <div class="water">
+                <div class="cascade_flow" ref="cascade_flow_1"></div>
+                <div class="cascade_flow" ref="cascade_flow_2"></div>
+            </div>
+        </div>
 
         <!-- 弹出层部分 -->
         <mt-actionsheet :actions="data" v-model="sheetVisible" cancelText='取消'></mt-actionsheet>
@@ -95,29 +101,39 @@ export default {
             value:'',
             loading:false,
             list:[],
-            itemsA:[
-                {img:'./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg'},
-                {img:'./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg'},
-                {img:'./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg'},
-                {img:'./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg'},
-                {img:'./../../assets/images/45b20ec9b4d49be8f9ccd172fd098d74.jpg'},
-            ],
-            itemsB:[
-                {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
-                {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
-                {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
-                {img:'./../../assets/images/ac3f824dff4560493dbae43a0d36d62c.jpg'},
+            imageList:[
+                '45b20ec9b4d49be8f9ccd172fd098d74',
+                'ac3f824dff4560493dbae43a0d36d62c',
+                '52747066b0947fa40bd5dd2d3a135e0b',
+                'ac3f824dff4560493dbae43a0d36d62c',
+                'e6b2ab428d2b6413508177db14bb27e3',
+                'f4396b1de74bdcf492f77d3e591d84bd'
             ],
             sheetVisible:false,
             data:[
                 {name:'拍照',method:this.getCamera},
                 {name:'从相册选择',method:this.getLibrary}
             ],
-            LocationCity:"正在定位"
+            LocationCity:"正在定位",
+            //瀑布流数据定义
+            cascade:{
+                moments: [],
+                available: 1,
+                height1: 0,
+                height2: 0,
+                height3: 0,
+                page: 3    //如果连接数据库，page的初始值改为1
+            }
         }
     },
-    mounted(){
+    created(){
+        //获取第一页数据
+        this.fetchMoments();
         this.city();
+    },
+    mounted(){
+        //监听全局滚轮变化
+        window.addEventListener("scroll", this.handleScroll);
     },
     methods:{
         //上拉刷新
@@ -154,6 +170,67 @@ export default {
             }, function(e) {
                 _this.LocationCity = "定位失败"
             }, {provider: 'baidu'});		
+        },
+        //推荐内容瀑布流
+        fetchMoments(){    //向数据库请求数据接口
+            //我使用的是本地的假数据，所以分页设置用改变数组长度来代替，实际应用中改为分页设置即可
+            this.imageList.length = this.cascade.page;
+            this.cascade.moments = this.imageList;
+            this.$nextTick(() => {    //在dom节点元素完全加载完毕之后
+                this.sort(0);
+            })
+            
+        },
+        sort(j){    //这是一个递归函数，需要确保在图片加载完成之后在获取管道的高度，但是原本图片加载是一个异步操作；使用for循环会打乱顺序，所以想使异步函数同步执行，将for循环改为递归
+            if(j < this.cascade.moments.length){
+                let that = this;
+                //创建一个image类
+                var newImg = new Image();
+                //获取需要加载图片的地址
+                //因为我的是假数据，所以在这里定义一个随机地址
+                var index_num = Math.floor((Math.random() * this.cascade.moments.length));  //定义一个数组中的随机地址
+                var img_src = this.cascade.moments[index_num];
+                newImg.src = "./../assets/images/" + img_src + ".jpg";
+
+                // 当图片加载完成之后
+                newImg.onload = function(){
+                    //获取两个管道的高度
+                    var arr = [
+                        that.$refs.cascade_flow_1.offsetHeight,
+                        that.$refs.cascade_flow_2.offsetHeight
+                    ]
+                    //获取管道最小高度
+                    var min = arr.indexOf(Math.min.apply(Math, arr));
+                    //添加模板
+                    var html = '<div class="card"><img src='+ newImg.src +'></div>';
+                    // 给最小管道添加图片模板
+                    if(min == 0){
+                        that.$refs.cascade_flow_1.innerHTML += html;
+                    }else if(min == 1){
+                        that.$refs.cascade_flow_2.innerHTML += html;
+                    }
+                    that.sort(j + 1);
+                }()
+            }
+        },
+        handleScroll(){
+            //获取滚轮的位置
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            this.cascade.height1 = scrollTop;
+            //获取文档的高度
+            this.cascade.height2 = document.body.scrollHeight;
+            //可视区域
+            //要预先判断当前浏览器的渲染方式：BackCompat标准兼容模式关闭，此时获取方式为document.body / CSS1Compat标准兼容模式开启，此时获取方式为document.documentElement
+            this.cascade.height3 = document.compatMode == 'CSS1Compat' ? document.documentElement.clientHeight : document.body.clientHeight;
+            //设置上拉加载分页，此时需要判断当前是否滚动到最底(多添加一项判断，防止当滑倒最底部时请求不断触发)
+            if(this.cascade.height3 + this.cascade.height1 >= this.cascade.height2 - 100 && this.cascade.available){
+                //同样道理，我这里使用的是本地的假数据，所以不使用分页请求，而是改变原本假数据数组的长度来改变值
+                this.cascade.page ++;
+                this.cascade.available = 0;  //保证只请求一次
+                this.fetchMoments();
+            }else if(this.cascade.height3 + this.cascade.height1 < this.cascade.height2 - 100){
+                this.cascade.available = 1;
+            }
         }
     }
 }
@@ -161,5 +238,51 @@ export default {
 
 <style lang="less" scoped>
 @import url("./../../assets/css/home/home.less");
+.water_cascade_flow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.a {
+  position: fixed;
+  width: 200px;
+  top: 200px;
+  right: 100px;
+  z-index: 10;
+  background: #eee;
+}
+.water {
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 100px;
+  .cascade_flow {
+    width: 50%;
+    padding: 10px;
+    padding-bottom: 0px;
+  }
+}
+.card {
+  width: 290px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #888888;
+  margin-bottom: 20px;
+  > img:first-child {
+    width: 100%;
+    border-radius: 5px;
+  }
+  > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    > img {
+      border-radius: 100%;
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+    }
+  }
+}
 </style>
 
