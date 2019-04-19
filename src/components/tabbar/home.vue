@@ -190,7 +190,7 @@ export default {
                 //因为我的是假数据，所以在这里定义一个随机地址
                 var index_num = Math.floor((Math.random() * this.cascade.moments.length));  //定义一个数组中的随机地址
                 var img_src = this.cascade.moments[index_num];
-                newImg.src = "./../assets/images/" + img_src + ".jpg";
+                newImg.src = "static/img/" + img_src + ".jpg";
 
                 // 当图片加载完成之后
                 newImg.onload = function(){
@@ -202,7 +202,7 @@ export default {
                     //获取管道最小高度
                     var min = arr.indexOf(Math.min.apply(Math, arr));
                     //添加模板
-                    var html = '<div class="card"><img src='+ newImg.src +'></div>';
+                    var html = '<div class="card"><img style="height:300px;width:100%" src='+ newImg.src +'></div>';
                     // 给最小管道添加图片模板
                     if(min == 0){
                         that.$refs.cascade_flow_1.innerHTML += html;
@@ -238,51 +238,5 @@ export default {
 
 <style lang="less" scoped>
 @import url("./../../assets/css/home/home.less");
-.water_cascade_flow {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.a {
-  position: fixed;
-  width: 200px;
-  top: 200px;
-  right: 100px;
-  z-index: 10;
-  background: #eee;
-}
-.water {
-  width: 100%;
-  margin-top: 60px;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 100px;
-  .cascade_flow {
-    width: 50%;
-    padding: 10px;
-    padding-bottom: 0px;
-  }
-}
-.card {
-  width: 290px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px #888888;
-  margin-bottom: 20px;
-  > img:first-child {
-    width: 100%;
-    border-radius: 5px;
-  }
-  > div:nth-child(2) {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    > img {
-      border-radius: 100%;
-      width: 32px;
-      height: 32px;
-      margin-right: 10px;
-    }
-  }
-}
 </style>
 

@@ -76,3 +76,23 @@
 .home-index .navBanner ul li .mui-icon {
   color: #333;
 }
+.home-index .water_cascade_flow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.home-index .water_cascade_flow .water {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 100px;
+}
+.home-index .water_cascade_flow .water .cascade_flow {
+  width: 50%;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+.home-index .water_cascade_flow .water .cascade_flow img {
+  width: 100%;
+  height: 300px;
+}
