@@ -192,7 +192,7 @@ export default {
                 var img_src = this.cascade.moments[index_num];
                 newImg.src = "static/img/" + img_src + ".jpg";
 
-                // 当图片加载完成之后
+                // 当图片加载完成之后(暂无数据接口调用，故对该函数实行自调用，在有接口时请除去自调用方法)
                 newImg.onload = function(){
                     //获取两个管道的高度
                     var arr = [
