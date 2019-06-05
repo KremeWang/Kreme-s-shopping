@@ -190,7 +190,7 @@ export default {
                 //因为我的是假数据，所以在这里定义一个随机地址
                 var index_num = Math.floor((Math.random() * this.cascade.moments.length));  //定义一个数组中的随机地址
                 var img_src = this.cascade.moments[index_num];
-                newImg.src = "static/img/" + img_src + ".jpg";
+                newImg.src = "static/img/" + img_src + ".jpg"; 
 
                 // 当图片加载完成之后(暂无数据接口调用，故对该函数实行自调用，在有接口时请除去自调用方法)
                 newImg.onload = function(){
