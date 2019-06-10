@@ -5,6 +5,7 @@ import message from '@/components/tabbar/message'
 import shopCar from '@/components/tabbar/shopCar'
 import personal from '@/components/tabbar/personal'
 import commodityPurchase from '@/components/home/commodityPurchase'
+import newsList from '@/components/home/newsList'
 
 Vue.use(Router)
 
@@ -34,6 +35,10 @@ export default new Router({
     {
       path: '/home/commodityPurchase', 
       component: commodityPurchase
+    },
+    {
+      path: '/home/newsList', 
+      component: newsList
     },
   ]
 })
