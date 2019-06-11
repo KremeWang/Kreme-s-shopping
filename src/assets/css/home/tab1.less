@@ -1,7 +1,10 @@
 .tab1_index {
     overflow: hidden;
     width: 100%;
+    background-color: #f2f7fb;
+    padding-bottom: 30px;
 
+    // 顶部菜单栏设置
     .top_panel {
         padding: 10px 0 0;
         overflow: hidden;
@@ -16,21 +19,27 @@
         }
     }
 
+    // 置顶新闻
     .top_news {
         height: auto;
+
         ul {
-            padding: 0;
+            padding: 0 10px;
+            margin-top: 10px;
             list-style: none;
             margin: 0;
+            background-color: #fff;
+
             li {
                 height: 70px;
-                background-color: #fff;
-                padding: 10px;
-                margin-top: 10px;
+                padding: 10px 0;
+                border-bottom: 1px solid #f2f7fb;
                 box-sizing: border-box;
+
                 p {
-                    font-size: 18px;
+                    font-size: 16px;
                     font-weight: bold;
+                    letter-spacing: 1px;
 
                     a {
                         color: #333;
@@ -39,15 +48,17 @@
 
                 span {
                     font-size: 14px;
-                    color: #ddd;
+                    color: gray;
                 }
             }
         }
     }
 
+    // 新闻轮播
     .news_slide {
         height: 200px;
         margin-top: 10px;
+
         .mtSwipeItem:nth-child(1) {
             background: url('./../../images/52747066b0947fa40bd5dd2d3a135e0b.jpg') no-repeat;
             background-size: 100% 100%;
@@ -64,31 +75,402 @@
         }
     }
 
-    .newsList{
-        margin-top: 10px;
-        ul{
-            padding: 0;
+    //新闻列表
+    .newsList {
+        background-color: #fff;
+
+        ul {
+            padding: 0 10px;
             list-style: none;
             margin: 0;
-            li{
+            overflow: hidden;
+            background-color: #fff;
+
+            li {
                 float: left;
                 width: 100%;
-                margin-bottom: 10px;
-                background-color: #fff;
                 height: 100px;
-                div:nth-child(1){
-                    width: 70%;
+                border-bottom: 1px solid #f2f7fb;
+                padding: 10px 0;
+
+                div:nth-child(1) {
+                    width: 100%;
                     height: 100%;
-                    background-color: #004aff;
                     float: left;
+
+                    p {
+                        height: 50px;
+                        line-height: 25px;
+                        font-size: 16px;
+                        color: #333;
+                        margin: 0;
+                        font-weight: bold;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        letter-spacing: 1px;
+                    }
+
+                    span {
+                        margin-top: 10px;
+                        font-size: 12px;
+                        color: gray;
+                        line-height: 20px;
+                        display: inline-block;
+                        height: 20px;
+                    }
                 }
-                div:nth-child(2){
+
+                .cWidth {
+                    width: 70% !important;
+                }
+
+                div:nth-child(2) {
+                    padding: 10px 0;
                     width: 30%;
                     height: 100%;
                     float: right;
-                    background-color: #ccc;
+                    background: url('./../../images/52747066b0947fa40bd5dd2d3a135e0b.jpg') no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+
+        .changeState {
+            height: 50px;
+            padding: 10px 0;
+            line-height: 30px;
+
+            span {
+                display: inline-block;
+                width: 50%;
+                text-align: center;
+                float: left;
+            }
+
+            span:nth-child(1) {
+                border-right: 1px solid #ddd;
+            }
+        }
+    }
+
+    //体育专栏
+    .sports {
+        margin-top: 10px;
+        background-color: #fff;
+        overflow: hidden;
+
+        .sport_head {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+
+            span:nth-child(1) {
+                font-size: 18px;
+                float: left;
+                font-weight: bold;
+            }
+
+            span:nth-child(2) {
+                font-size: 14px;
+                float: right;
+            }
+        }
+
+        ul {
+            padding: 0 10px;
+            list-style: none;
+            margin: 0;
+            overflow: hidden;
+            background-color: #fff;
+
+            li {
+                float: left;
+                width: 100%;
+                height: 100px;
+                border-bottom: 1px solid #f2f7fb;
+                padding: 10px 0;
+
+                div:nth-child(1) {
+                    width: 100%;
+                    height: 100%;
+                    float: left;
+
+                    p {
+                        height: 50px;
+                        line-height: 25px;
+                        font-size: 16px;
+                        color: #333;
+                        margin: 0;
+                        font-weight: bold;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        letter-spacing: 1px;
+                    }
+
+                    span {
+                        margin-top: 10px;
+                        font-size: 12px;
+                        color: gray;
+                        line-height: 20px;
+                        display: inline-block;
+                        height: 20px;
+                    }
+                }
+
+                .cWidth {
+                    width: 70% !important;
+                }
+
+                div:nth-child(2) {
+                    padding: 10px 0;
+                    width: 30%;
+                    height: 100%;
+                    float: right;
+                    background: url('./../../images/nba.jpeg') no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+
+        .sport_foot {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+    }
+
+    // 娱乐专栏
+    .entertainment {
+        margin-top: 10px;
+        background-color: #fff;
+        overflow: hidden;
+
+        .entertainment_head {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+
+            div:nth-child(1) {
+                float: left;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            div:nth-child(2) {
+                float: right;
+                font-size: 14px;
+
+                span {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        ul {
+            padding: 0 10px;
+            list-style: none;
+            margin: 0;
+            overflow: hidden;
+            background-color: #fff;
+
+            li {
+                float: left;
+                width: 100%;
+                height: 100px;
+                border-bottom: 1px solid rgb(240, 247, 253);
+                padding: 10px 0;
+
+                div:nth-child(1) {
+                    width: 100%;
+                    height: 100%;
+                    float: left;
+
+                    p {
+                        height: 50px;
+                        line-height: 25px;
+                        font-size: 16px;
+                        color: #333;
+                        margin: 0;
+                        font-weight: bold;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        letter-spacing: 1px;
+                    }
+
+                    span {
+                        margin-top: 10px;
+                        font-size: 12px;
+                        color: gray;
+                        line-height: 20px;
+                        display: inline-block;
+                        height: 20px;
+                    }
+                }
+
+                .cWidth {
+                    width: 70% !important;
+                }
+
+                div:nth-child(2) {
+                    padding: 10px 0;
+                    width: 30%;
+                    height: 100%;
+                    float: right;
+                    background: url('./../../images/e09830add7da78c4ab7f6d9ccae17990.jpeg') no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+
+        .entertainment_foot {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+    }
+
+    // 生活服务
+    .life_service {
+        background-color: #fff;
+        overflow: hidden;
+        margin-top: 10px;
+
+        .life_service_head {
+            height: 40px;
+            line-height: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            overflow: hidden;
+
+            li {
+                float: left;
+                width: 20%;
+                text-align: center;
+                padding: 10px;
+
+                span {
+                    width: 100%;
+                }
+
+                span:nth-child(1) {
+                    color: #007aff;
+                }
+
+                span:nth-child(2) {
+                    color: #333;
+                    font-size: 14px;
                 }
             }
         }
     }
+
+    // 更多推荐
+    .more_recommend {
+        margin-top: 10px;
+        background-color: #fff;
+        overflow: hidden;
+
+        .more_recommend_head {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        ul {
+            padding: 0 10px;
+            margin: 0;
+            list-style: none;
+
+            li {
+                width: calc(100% / 6);
+                float: left;
+                font-size: 16px;
+                height: 30px;
+                line-height: 30px;
+
+                a {
+                    color: #333;
+                }
+            }
+        }
+    }
+
+    // 底部搜索框
+    .search_input {
+        margin-top: 20px;
+        padding: 9px 20px 10px;
+        position: relative;
+
+        span {
+            position: absolute;
+            // top: 13px;
+            left: 26px;
+            color: #999;
+            transition: opacity .6s;
+        }
+
+        input {
+            width: 100%;
+            height: 28px;
+            padding-left: 30px;
+            line-height: 28px;
+            background: #fff;
+            border-radius: 14px;
+            outline: none;
+            border: 0;
+            transition: padding-left .6s;
+        }
+    }
+
+    // 搜索框动画
+    .focus {
+        input {
+            padding-left: 15px;
+        }
+
+    }
+
+    .focus span {
+        opacity: 0;
+    }
+
+    //底部切换
+    .news_foot {
+        position: relative;
+        overflow: hidden;
+        height: 50px;
+        .news_foot_tab {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            span{
+                padding: 0 10px;
+            }
+            span:nth-child(2){
+                display: inline-block;
+                border-left: 1px solid #ccc;
+                border-right: 1px solid #ccc;
+            }
+        }
+        .news_copyright{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 30px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #ccc;
+        }
+    }
+
 }
