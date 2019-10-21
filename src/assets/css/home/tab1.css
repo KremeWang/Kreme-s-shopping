@@ -375,7 +375,7 @@
   transform: translateX(-50%);
 }
 .tab1_index .news_foot .news_foot_tab span {
-  padding: 0 10px;
+  padding: 0 9px;
 }
 .tab1_index .news_foot .news_foot_tab span:nth-child(2) {
   display: inline-block;

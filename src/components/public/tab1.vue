@@ -471,7 +471,7 @@ export default {
             var hour = dateTime.getHours();
             var minute = dateTime.getMinutes();
             var second = dateTime.getSeconds();
-            var now = new Date().getTime();
+            var now = new Date();
 
             var milliseconds = 0;
             var timeSpanStr;
